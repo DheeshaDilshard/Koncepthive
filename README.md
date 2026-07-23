@@ -1,84 +1,74 @@
-<div align="center">
-  <h1>Prisma</h1>
-  <a href="https://www.npmjs.com/package/prisma"><img src="https://img.shields.io/npm/v/prisma.svg?style=flat" /></a>
-  <a href="https://github.com/prisma/prisma/blob/main/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
-  <a href="https://github.com/prisma/prisma/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-blue" /></a>
-  <a href="https://pris.ly/discord"><img alt="Discord" src="https://img.shields.io/discord/937751382725886062?label=Discord"></a>
-  <br />
-  <br />
-  <a href="https://www.prisma.io/docs/getting-started/quickstart">Quickstart</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://www.prisma.io/">Website</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://www.prisma.io/docs/">Docs</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://github.com/prisma/prisma-examples/">Examples</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://www.prisma.io/blog">Blog</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://pris.ly/discord">Discord</a>
-  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://twitter.com/prisma">Twitter</a>
-  <br />
-  <hr />
-</div>
+# Task Management System
 
-## What is Prisma?
+## Project Overview
 
-Prisma is a **next-generation ORM** that consists of these tools:
+This repository contains a full-stack Task Management System built for a technical assessment. The backend is a Node.js + Express.js API written in TypeScript and backed by PostgreSQL with Prisma. The frontend is a React + TypeScript application built with Vite and Tailwind CSS.
 
-- [**Prisma Client**](https://www.prisma.io/docs/concepts/components/prisma-client): Auto-generated and type-safe query builder for Node.js & TypeScript
-- [**Prisma Migrate**](https://www.prisma.io/docs/concepts/components/prisma-migrate): Declarative data modeling & migration system
-- [**Prisma Studio**](https://github.com/prisma/studio): GUI to view and edit data in your database
+## Technology Stack
 
-Prisma Client can be used in _any_ Node.js or TypeScript backend application (including serverless applications and microservices). This can be a [REST API](https://www.prisma.io/docs/concepts/overview/prisma-in-your-stack/rest), a [GraphQL API](https://www.prisma.io/docs/concepts/overview/prisma-in-your-stack/graphql) a gRPC API, or anything else that needs a database.
+- Frontend: React.js, TypeScript, Vite, Tailwind CSS, React Router, Axios
+- Backend: Node.js, Express.js, TypeScript
+- Database: PostgreSQL, Prisma
+- Authentication: JWT access tokens
 
-## Getting started
+## Installation Instructions
 
-The fastest way to get started with Prisma is by following the [**Quickstart (5 min)**](https://pris.ly/quickstart).
+1. Copy `.env.example` to `.env`.
+2. Update database credentials and JWT secret in `.env`.
+3. Install dependencies for backend and frontend.
 
-The Quickstart is based on a preconfigured SQLite database. You can also get started with your own database (PostgreSQL and MySQL) by following one of these guides:
+## Environment Variables
 
-- [Add Prisma to an existing project](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgresql)
-- [Set up a new project with Prisma from scratch](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql)
+Backend:
 
-## Community
+- `BACKEND_PORT` - port for backend API
+- `DATABASE_URL` - PostgreSQL connection URL
+- `JWT_SECRET` - secret used to sign JWT tokens
+- `JWT_EXPIRES_IN` - JWT expiration duration
 
-Prisma has a large and supportive [community](https://www.prisma.io/community) of enthusiastic application developers. You can join us on [Discord](https://pris.ly/discord) and here on [GitHub](https://github.com/prisma/prisma/discussions).
+Frontend:
 
-## Security
+- `VITE_API_BASE_URL` - base URL for backend API requests
 
-If you have a security issue to report, please contact us at [security@prisma.io](mailto:security@prisma.io?subject=[GitHub]%20Prisma%202%20Security%20Report%20).
+## Database Setup
 
-## Support
+1. Install PostgreSQL and create a database.
+2. Set `DATABASE_URL` in `.env`.
+3. Run `npm install` in `project/backend`.
+4. Run `npm run migrate` from `project/backend`.
+5. Run `npm run seed` from `project/backend`.
 
-### Ask a question about Prisma
+## Running the Backend
 
-You can ask questions and initiate [discussions](https://github.com/prisma/prisma/discussions/) about Prisma-related topics in the `prisma` repository on GitHub.
+1. Install backend dependencies: `npm install` in `project/backend`.
+2. Start development server: `npm run dev`.
 
-👉 [**Ask a question**](https://github.com/prisma/prisma/discussions/new)
+## Running the Frontend
 
-### Create a bug report for Prisma
+1. Install frontend dependencies: `npm install` in `project/frontend`.
+2. Start development server: `npm run dev`.
 
-If you see an error message or run into an issue, please make sure to create a bug report! You can find [best practices for creating bug reports](https://www.prisma.io/docs/guides/other/troubleshooting-orm/creating-bug-reports) (like including additional debugging output) in the docs.
+## API Documentation
 
-👉 [**Create bug report**](https://pris.ly/prisma-prisma-bug-report)
+| Method | Path                   | Body                                                 | Response                                |
+| ------ | ---------------------- | ---------------------------------------------------- | --------------------------------------- |
+| POST   | `/api/auth/login`      | `{ email, password }`                                | `{ success, data: { token }, message }` |
+| POST   | `/api/auth/logout`     | none                                                 | `{ success, message }`                  |
+| GET    | `/api/tasks`           | query params                                         | `{ success, data: tasks, message }`     |
+| GET    | `/api/tasks/:id`       | none                                                 | `{ success, data: task, message }`      |
+| POST   | `/api/tasks`           | `{ title, description, priority, status, due_date }` | `{ success, data: task, message }`      |
+| PUT    | `/api/tasks/:id`       | `{ title, description, priority, status, due_date }` | `{ success, data: task, message }`      |
+| DELETE | `/api/tasks/:id`       | none                                                 | `{ success, message }`                  |
+| GET    | `/api/dashboard/stats` | none                                                 | `{ success, data: stats, message }`     |
 
-### Submit a feature request
+## Assumptions Made
 
-If Prisma currently doesn't have a certain feature, be sure to check out the [roadmap](https://www.prisma.io/docs/more/roadmap) to see if this is already planned for the future.
+- JWT is used as a stateless access token.
+- Refresh tokens are not implemented.
+- Password hashing uses bcrypt before storing credentials.
 
-If the feature on the roadmap is linked to a GitHub issue, please make sure to leave a +1 on the issue and ideally a comment with your thoughts about the feature!
+## Known Limitations
 
-👉 [**Submit feature request**](https://github.com/prisma/prisma/issues/new?assignees=&labels=&template=feature_request.md&title=)
-
-## Contributing
-
-Refer to our [contribution guidelines](https://github.com/prisma/prisma/blob/main/CONTRIBUTING.md) and [Code of Conduct for contributors](https://github.com/prisma/prisma/blob/main/CODE_OF_CONDUCT.md).
-
-## Tests Status
-
-- Prisma Tests Status:  
-  [![CI](https://github.com/prisma/prisma/actions/workflows/test.yml/badge.svg)](https://github.com/prisma/prisma/actions/workflows/test.yml)
-- Ecosystem Tests Status:  
-  [![Actions Status](https://github.com/prisma/ecosystem-tests/workflows/test/badge.svg)](https://github.com/prisma/ecosystem-tests/actions)
+- No production-ready refresh token flow.
+- Simple frontend state management without Redux.
+- Backend does not include rate limiting or email verification.

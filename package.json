@@ -1,34 +1,97 @@
 {
-  "name": "task-manager-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .ts,.tsx"
+  "name": "prisma-client-eaf29b37ac3a16a07f3d7e47392818d2f12fd21a6a6c0a3d7dfe7ccb7107aca2",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "browser": "index-browser.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "require": {
+        "node": "./index.js",
+        "edge-light": "./wasm.js",
+        "workerd": "./wasm.js",
+        "worker": "./wasm.js",
+        "browser": "./index-browser.js",
+        "default": "./index.js"
+      },
+      "import": {
+        "node": "./index.js",
+        "edge-light": "./wasm.js",
+        "workerd": "./wasm.js",
+        "worker": "./wasm.js",
+        "browser": "./index-browser.js",
+        "default": "./index.js"
+      },
+      "default": "./index.js"
+    },
+    "./edge": {
+      "types": "./edge.d.ts",
+      "require": "./edge.js",
+      "import": "./edge.js",
+      "default": "./edge.js"
+    },
+    "./react-native": {
+      "types": "./react-native.d.ts",
+      "require": "./react-native.js",
+      "import": "./react-native.js",
+      "default": "./react-native.js"
+    },
+    "./extension": {
+      "types": "./extension.d.ts",
+      "require": "./extension.js",
+      "import": "./extension.js",
+      "default": "./extension.js"
+    },
+    "./index-browser": {
+      "types": "./index.d.ts",
+      "require": "./index-browser.js",
+      "import": "./index-browser.js",
+      "default": "./index-browser.js"
+    },
+    "./index": {
+      "types": "./index.d.ts",
+      "require": "./index.js",
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./wasm": {
+      "types": "./wasm.d.ts",
+      "require": "./wasm.js",
+      "import": "./wasm.js",
+      "default": "./wasm.js"
+    },
+    "./runtime/library": {
+      "types": "./runtime/library.d.ts",
+      "require": "./runtime/library.js",
+      "import": "./runtime/library.js",
+      "default": "./runtime/library.js"
+    },
+    "./runtime/binary": {
+      "types": "./runtime/binary.d.ts",
+      "require": "./runtime/binary.js",
+      "import": "./runtime/binary.js",
+      "default": "./runtime/binary.js"
+    },
+    "./generator-build": {
+      "require": "./generator-build/index.js",
+      "import": "./generator-build/index.js",
+      "default": "./generator-build/index.js"
+    },
+    "./sql": {
+      "require": {
+        "types": "./sql.d.ts",
+        "node": "./sql.js",
+        "default": "./sql.js"
+      },
+      "import": {
+        "types": "./sql.d.ts",
+        "node": "./sql.mjs",
+        "default": "./sql.mjs"
+      },
+      "default": "./sql.js"
+    },
+    "./*": "./*"
   },
-  "dependencies": {
-    "axios": "^1.8.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.17.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "@vitejs/plugin-react": "^6.0.4",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.6.2",
-    "vite": "^8.1.5"
-  }
+  "version": "5.22.0",
+  "sideEffects": false
 }
